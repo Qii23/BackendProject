@@ -5,7 +5,7 @@ import json
 import uuid
 import pymysql.cursors
 
-def logins(email,password):
+def login(email,password):
 	mycursor.execute("""SELECT * FROM User WHERE email = %s and password =%s""",(email,password))
 	if(mycursor.rowcount>0):
 		mycursor.execute("""SELECT * FROM User WHERE email = %s""",(email))
@@ -16,3 +16,4 @@ def logins(email,password):
 		return json.dumps(payload)
 	else:
 		return("wrong email or password")
+    
